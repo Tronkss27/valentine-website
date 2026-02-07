@@ -27,8 +27,44 @@ function moveButton() {
 
 // Funzione per ingrandire il bottone Sì
 function growYesButton() {
-  yesScale += 0.2; // Aumenta del 20% ogni volta
+  yesScale += 0.5; // Aumenta molto di più!
   yesButton.style.transform = `scale(${yesScale})`;
+  
+  // Aumenta z-index per assicurarsi che copra tutto man mano che cresce
+  yesButton.style.zIndex = 100;
+}
+
+// Lista di frasi per il bottone No
+const noTexts = [
+  "No",
+  "Sei sicura?",
+  "Davvero?",
+  "Pensaci bene...",
+  "Ultima chance!",
+  "Daiii!",
+  "Non farlo!",
+  "Ti prego!",
+  "Sbagliato!",
+  "Riprova!",
+  "Cuore spezzato 💔",
+  "Ma io ti amo!",
+  "Non puoi!",
+  "Impossibile!",
+  "Clicca l'altro!",
+];
+
+// Funzione per cambiare testo e muovere
+function escapeNo() {
+  moveButton();
+  growYesButton();
+  
+  // Cambio testo bottone No
+  const randomText = noTexts[Math.floor(Math.random() * noTexts.length)];
+  noButton.textContent = randomText;
+  
+  // Rotazione casuale per renderlo più "pazzo"
+  const randomRot = Math.floor(Math.random() * 40) - 20;
+  noButton.style.transform = `rotate(${randomRot}deg)`;
 }
 
 // Evento click sul Sì
@@ -38,32 +74,16 @@ yesButton.addEventListener("click", () => {
   noButton.style.display = "none";
   // Reset scala
   yesButton.style.transform = "scale(1)";
+  yesButton.style.zIndex = 10;
 });
 
 // Eventi per Desktop (Mouseover)
 noButton.addEventListener("mouseover", () => {
-  // Su desktop scappa appena ci passi sopra
-  moveButton();
+  escapeNo();
 });
 
 // Eventi per Mobile (Click/Touch)
-// Usiamo 'click' che copre anche il tap su mobile
 noButton.addEventListener("click", (e) => {
-  // Previene il click effettivo (non fa nulla se non scappare)
   e.preventDefault();
-  
-  moveButton();
-  growYesButton();
-  
-  // Messaggio opzionale divertente
-  const messages = [
-    "Sei sicura?",
-    "Ripensaci...",
-    "Daiii!",
-    "Non puoi dirmi di no!",
-    "Il tasto Sì è proprio lì!",
-    "Ti pregooo 🥺"
-  ];
-  const randomMsg = messages[Math.floor(Math.random() * messages.length)];
-  responseMessage.textContent = randomMsg;
+  escapeNo();
 });
