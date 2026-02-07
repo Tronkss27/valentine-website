@@ -134,6 +134,28 @@ body {
   box-shadow: 0 10px 20px rgba(255, 111, 145, 0.4) !important;
 }
 
+/* Classe per il Sì Gigante Finale */
+.button--giant-takeover {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) scale(1) !important;
+  width: 90vw !important;
+  height: 80vh !important;
+  z-index: 9999 !important;
+  font-size: 3rem !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 0 100px rgba(255, 111, 145, 0.8) !important;
+}
+
+@keyframes popIn {
+  0% { transform: translate(-50%, -50%) scale(0); }
+  100% { transform: translate(-50%, -50%) scale(1); }
+}
+
 /* Animazione Shake per quando scappa */
 @keyframes shake {
   0% { transform: translateX(0); }
