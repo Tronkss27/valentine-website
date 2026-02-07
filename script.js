@@ -156,7 +156,7 @@ function handleRejectionStory() {
     setTimeout(() => { noButton.style.display = "none"; }, 500);
 
     // Il Sì diventa gigante
-    yesButton.textContent = "ORA NON HAI SCELTA! 😈💖";
+    yesButton.innerHTML = `<span style="display:block; font-size: 1.5rem; margin-bottom: 10px; opacity: 0.8;">ORA NON HAI SCELTA! 😈💖</span>Sì, ti amo amore mio! 😍`;
     yesButton.classList.add("button--giant-takeover");
     
     // Aggiorna messaggio
