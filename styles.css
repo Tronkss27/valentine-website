@@ -111,9 +111,22 @@ body {
   border: 2px solid var(--rose-500);
 }
 
-/* Classe per quando il bottone inizia a scappare */
-.button--running {
-  position: absolute;
+/* Stili per la trasformazione del bottone No */
+.button--surrender {
+  background-color: #e0e0e0 !important;
+  color: #666 !important;
+  border-color: #ccc !important;
+  cursor: pointer !important;
+  transform: scale(0.9) !important;
+}
+
+/* Quando il No diventa Sì */
+.button--transformed {
+  background-color: var(--rose-500) !important;
+  color: var(--white) !important;
+  border: none !important;
+  transform: scale(1.2) !important;
+  box-shadow: 0 10px 20px rgba(255, 111, 145, 0.4) !important;
 }
 
 .response {
