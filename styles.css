@@ -85,7 +85,7 @@ body {
   flex-wrap: wrap;
   margin-top: 20px;
   width: 100%;
-  position: relative; /* Contenitore relativo */
+  /* position: relative; RIMOSSO per permettere al bottone di posizionarsi rispetto alla card */
 }
 
 .button {
