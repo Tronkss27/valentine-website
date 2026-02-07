@@ -114,8 +114,9 @@ function surrenderButton() {
 }
 
 function growYesButton() {
-  const growthRate = isMobile ? 0.4 : 0.2; 
-  const maxScale = isMobile ? 1.8 : 2.5; 
+  // Aumentato il tasso di crescita per renderlo molto più evidente
+  const growthRate = isMobile ? 0.5 : 0.3; // Era 0.4 e 0.2
+  const maxScale = isMobile ? 2.5 : 3.5;   // Aumentato anche il limite massimo
 
   if (yesScale < maxScale) {
     yesScale += growthRate;

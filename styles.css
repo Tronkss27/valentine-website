@@ -144,11 +144,13 @@ body {
   height: 80vh !important;
   z-index: 9999 !important;
   font-size: 3rem !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex !important;
+  flex-direction: column !important; /* Aggiunto per impilare i testi */
+  align-items: center !important;
+  justify-content: center !important;
   animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   box-shadow: 0 0 100px rgba(255, 111, 145, 0.8) !important;
+  text-align: center !important; /* Assicura che il testo sia centrato */
 }
 
 @keyframes popIn {
