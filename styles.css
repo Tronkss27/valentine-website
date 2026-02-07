@@ -1,4 +1,4 @@
-/* Manteniamo gli stili base precedenti e aggiungiamo le logiche per il bottone che scappa */
+/* Manteniamo gli stili base precedenti */
 *,
 *::before,
 *::after {
@@ -29,6 +29,8 @@ body {
   padding: 24px;
   position: relative;
   overflow: hidden;
+  /* Previene lo scroll elastico su mobile che potrebbe rovinare l'esperienza */
+  overscroll-behavior: none;
 }
 
 .page {
@@ -49,6 +51,7 @@ body {
   position: relative; /* Fondamentale per il posizionamento assoluto del bottone No */
   min-height: 400px; /* Diamo spazio al bottone per muoversi */
   justify-content: center;
+  transition: min-height 0.3s ease;
 }
 
 .card--center {
@@ -72,7 +75,7 @@ body {
 }
 
 .card__icon {
-  width: 120px; /* Leggermente più grande per il maialino */
+  width: 120px;
   height: auto;
   object-fit: contain;
   margin: 0 auto;
@@ -85,7 +88,6 @@ body {
   flex-wrap: wrap;
   margin-top: 20px;
   width: 100%;
-  /* position: relative; RIMOSSO per permettere al bottone di posizionarsi rispetto alla card */
 }
 
 .button {
@@ -95,8 +97,11 @@ body {
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease; /* Transizione fluida per ingrandimento */
+  transition: all 0.2s ease;
   z-index: 10;
+  /* Migliora la risposta al tocco su mobile */
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .button--primary {
@@ -127,6 +132,18 @@ body {
   border: none !important;
   transform: scale(1.2) !important;
   box-shadow: 0 10px 20px rgba(255, 111, 145, 0.4) !important;
+}
+
+/* Animazione Shake per quando scappa */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px) rotate(-5deg); }
+  75% { transform: translateX(5px) rotate(5deg); }
+  100% { transform: translateX(0); }
+}
+
+.button--shake {
+  animation: shake 0.3s ease-in-out;
 }
 
 .response {
